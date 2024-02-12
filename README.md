@@ -64,6 +64,7 @@ end
 
 ### Installation
 - Download the script and put it in the your resource directory.
+- Charge sql file `paycheck.sql`
 - Add the following code to your server.cfg/resources.cfg
 ```
 ensure mVeinPaycheck
