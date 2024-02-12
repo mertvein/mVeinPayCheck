@@ -38,6 +38,25 @@ AddEventHandler('QBCore:job-money', function(data)
 	end
 end)
 ```
+- qb-core/server/functions.lua find `PaycheckInterval()` and change with:
+```
+function PaycheckInterval()
+    if next(QBCore.Players) then
+        for _, Player in pairs(QBCore.Players) do
+            if Player then
+                local citizenid = Player.PlayerData.citizenid
+                local payment = QBShared.Jobs[Player.PlayerData.job.name]['grades'][tostring(Player.PlayerData.job.grade.level)].payment
+                if not payment then payment = Player.PlayerData.job.payment end
+                if Player.PlayerData.job and payment > 0 and (QBShared.Jobs[Player.PlayerData.job.name].offDutyPay or Player.PlayerData.job.onduty) then
+                    TriggerEvent('mVeinPaycheck:server:AddMoneyToPayCheck', citizenid, payment, Player.PlayerData.job.name)
+                    TriggerClientEvent('QBCore:Notify', src, "Maaşınız " ..payment.. "$ olarak merkez bankasına yatırıldı.", "success")
+                end
+            end
+        end
+    end
+    SetTimeout(QBCore.Config.Money.PayCheckTimeOut * (60 * 1000), PaycheckInterval)
+end
+```
 
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
