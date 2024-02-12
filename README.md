@@ -1,9 +1,9 @@
 # mVeinPaycheck
-- Vehicle insurance system with an amount of 10% of the sales price of all vehicles defined in qb-core!
+- Special character salary system for QBCore
 - New QBCore
 
 # Showcase (tr)
-![image](https://github.com/mertvein/mVein-sigorta/assets/79944577/1401b717-73fe-4845-adfd-6e6decada7eb)
+![image](https://github.com/mertvein/mVeinPaycheck/assets/79944577/bd44b5b2-65d5-4e98-be27-cf6bd6eca0f8)
 
 ## Discord
 - https://discord.gg/mert
